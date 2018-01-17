@@ -1,0 +1,16 @@
+{
+  "type": "system",
+  "name": "test",
+
+  "subsystems": [
+    {
+      "$include": {
+        "url": "version-service.json",
+        "parameters": {
+          "TAG": "v1.0.0",
+          "PUBLIC": true
+        }
+      }
+    }
+  ]
+}
