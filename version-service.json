@@ -1,6 +1,6 @@
 {
   "$parameters": {
-    "TAG": {
+    "COMMIT": {
       "required": true
     },
     "PUBLIC": {
@@ -33,7 +33,7 @@
       "build": {
         "git_repository": {
           "url": "https://github.com/mlab-lattice/testing__version-service",
-          "tag": "${TAG}"
+          "commit": "${COMMIT}"
         },
         "language": "node:boron",
         "command": "npm install"

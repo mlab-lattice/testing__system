@@ -7,7 +7,7 @@
       "$include": {
         "url": "version-service.json",
         "parameters": {
-          "TAG": "v1.0.0",
+          "COMMIT": "daf98b0d79294b8b689778446714a72d850d942f",
           "PUBLIC": true
         }
       }
