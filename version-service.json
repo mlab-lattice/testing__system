@@ -3,9 +3,6 @@
     "TAG": {
       "required": true
     },
-    "PORT": {
-      "default": 8080
-    },
     "PUBLIC": {
       "required": true
     },
@@ -26,7 +23,7 @@
       "ports": [
         {
           "name": "http",
-          "port": "${PORT}",
+          "port": 8080,
           "protocol": "HTTP",
           "external_access": {
             "public": "${PUBLIC}"
@@ -47,7 +44,7 @@
           "VersionService.js"
         ],
         "environment": {
-          "PORT": "${PORT}"
+          "PORT": "8080"
         }
       }
     }
