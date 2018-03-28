@@ -5,9 +5,10 @@
   "subsystems": [
     {
       "$include": {
-        "url": "version-service.json",
+        "url": "static-version-service.json",
         "parameters": {
-          "COMMIT": "daf98b0d79294b8b689778446714a72d850d942f",
+          "NAME": "a",
+          "TAG": "1.0.0",
           "PUBLIC": true
         }
       }

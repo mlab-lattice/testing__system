@@ -1,0 +1,49 @@
+{
+  "$parameters": {
+    "NAME": { "required": true },
+    "TAG": { "required": true},
+    "PUBLIC": { "required": true },
+    "NUM_INSTANCES": { "default": 1 },
+    "INSTANCE_TYPE": { "default": "t2.micro" }
+  },
+
+  "type": "service",
+  "name": "${NAME}",
+
+  "components": [
+    {
+      "name": "service",
+      "ports": [
+        {
+          "name": "http",
+          "port": 8080,
+          "protocol": "HTTP",
+          "external_access": {
+            "public": "${PUBLIC}"
+          }
+        }
+      ],
+      "build": {
+        "git_repository": {
+          "url": "https://github.com/mlab-lattice/testing__version-service",
+          "tag": "${TAG}"
+        },
+        "language": "node:boron",
+        "command": "npm install"
+      },
+      "exec": {
+        "command": [
+          "node",
+          "VersionService.js"
+        ],
+        "environment": {
+          "PORT": "8080"
+        }
+      }
+    }
+  ],
+  "resources": {
+    "num_instances": "${NUM_INSTANCES}",
+    "instance_type": "${INSTANCE_TYPE}"
+  }
+}
