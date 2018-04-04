@@ -8,7 +8,7 @@
         "url": "static-version-service.json",
         "parameters": {
           "NAME": "a",
-          "TAG": "1.0.0",
+          "TAG": "2.0.0",
           "PUBLIC": true
         }
       }
