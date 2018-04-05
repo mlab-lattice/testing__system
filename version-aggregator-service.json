@@ -34,7 +34,7 @@
       "exec": {
         "command": [
           "node",
-          "VersionService.js"
+          "VersionAggregatorService.js"
         ],
         "environment": {
           "PORT": "8080"
