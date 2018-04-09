@@ -40,6 +40,12 @@
           "PORT": "8080",
           "VERSION": "${VERSION}"
         }
+      },
+      "health_check": {
+        "http": {
+          "port": "http",
+          "path": "/status"
+        }
       }
     }
   ],

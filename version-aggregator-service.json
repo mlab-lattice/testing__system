@@ -39,6 +39,12 @@
         "environment": {
           "PORT": "8080"
         }
+      },
+      "health_check": {
+        "http": {
+          "port": "http",
+          "path": "/status"
+        }
       }
     }
   ],
