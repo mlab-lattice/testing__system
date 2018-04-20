@@ -25,7 +25,7 @@
       ],
       "build": {
         "git_repository": {
-          "url": "https://github.com/mlab-lattice/testing__version-aggregator-service",
+          "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
           "tag": "${TAG}"
         },
         "language": "node:boron",
