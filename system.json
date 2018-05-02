@@ -24,8 +24,7 @@
             "parameters": {
               "NAME": "c",
               "VERSION": "1.0.0",
-              "PUBLIC": false,
-              "NUM_INSTANCES": 1
+              "PUBLIC": false
             }
           }
         }
