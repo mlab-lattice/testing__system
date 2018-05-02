@@ -20,7 +20,7 @@
       "subsystems": [
         {
           "$include": {
-            "url": "parameter-dynamic-version-service.json",
+            "url": "parameter-dynamic-version-service-dedicated-node-pool.json",
             "parameters": {
               "NAME": "c",
               "VERSION": "1.0.0",
