@@ -27,7 +27,7 @@
               "PUBLIC": false,
               "NUM_NODE_POOL_INSTANCES": 2,
               "NUM_INSTANCES": 40,
-              "INSTANCE_TYPE": "t2.medium"
+              "INSTANCE_TYPE": "t2.large"
             }
           }
         }
