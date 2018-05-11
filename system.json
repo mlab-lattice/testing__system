@@ -27,7 +27,7 @@
               "PUBLIC": false,
               "NUM_NODE_POOL_INSTANCES": 3,
               "NUM_INSTANCES": 100,
-              "INSTANCE_TYPE": "t2.large"
+              "INSTANCE_TYPE": "m5.large"
             }
           }
         }
