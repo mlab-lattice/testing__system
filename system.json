@@ -90,7 +90,7 @@
         "num_instances": 100,
         "node_pool": {
           "num_instances": 4,
-          "instance_type": "t2.large"
+          "instance_type": "m5.large"
         }
       }
     }
