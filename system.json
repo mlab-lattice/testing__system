@@ -87,9 +87,9 @@
         }
       ],
       "resources": {
-        "num_instances": "3",
+        "num_instances": 3,
         "node_pool": {
-          "num_instances": "2",
+          "num_instances": 2,
           "instance_type": "t2.large"
         }
       }
