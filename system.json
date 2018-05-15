@@ -2,6 +2,13 @@
   "type": "system",
   "name": "demo",
 
+  "node_pools": {
+    "foo": {
+      "instance_type": "t2.large",
+      "num_instances": 3
+    }
+  },
+
   "subsystems": [
     {
       "type": "service",
