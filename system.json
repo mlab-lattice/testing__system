@@ -50,7 +50,7 @@
       ],
       "resources": {
         "num_instances": 1,
-        "instance_type": "t2.micro"
+        "node_pool": "/demo/foo"
       }
     },
     {
@@ -95,10 +95,7 @@
       ],
       "resources": {
         "num_instances": 3,
-        "node_pool": {
-          "num_instances": 2,
-          "instance_type": "t2.medium"
-        }
+        "node_pool": "/demo/foo"
       }
     }
   ]
