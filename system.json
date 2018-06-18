@@ -24,7 +24,7 @@
           "tag": "1.0.0"
         },
         "language": "node:boron",
-        "command": "npm install"
+        "command": ["npm", "install"]
       },
       "exec": {
         "command": [
@@ -61,7 +61,7 @@
           "tag": "dynamic"
         },
         "language": "node:boron",
-        "command": "npm install"
+        "command": ["npm", "install"]
       },
 
       "exec": {
