@@ -11,13 +11,16 @@
   "components": {
     "aggregator": {
       "type": "v1/service",
-      "port": {
-        "port": 8080,
-        "protocol": "HTTP",
-        "external_access": {
-          "public": true
+
+      "ports": {
+        "8080": {
+          "protocol": "HTTP",
+          "external_access": {
+            "public": true
+          }
         }
       },
+
       "build": {
         "git_repository": {
           "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
@@ -48,12 +51,8 @@
 
     "version-service": {
       "type": "v1/service",
-      "ports": {
-        "http": {
-          "port": 8080,
-          "protocol": "HTTP"
-        }
-      },
+
+      "ports": { "8080": { "protocol": "HTTP" } },
 
       "build": {
         "git_repository": {
