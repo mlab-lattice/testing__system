@@ -1,6 +1,5 @@
 {
-  "type": "system",
-  "name": "demo",
+  "type": "v1/system",
 
   "node_pools": {
     "foo": {
@@ -9,94 +8,82 @@
     }
   },
 
-  "subsystems": [
-    {
-      "type": "service",
-      "name": "aggregator",
-
-      "components": [
-        {
-          "name": "service",
-          "ports": [
-            {
-              "name": "http",
-              "port": 8080,
-              "protocol": "HTTP",
-              "external_access": { "public": true }
-            }
-          ],
-          "build": {
-            "git_repository": {
-              "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
-              "tag": "1.0.0"
-            },
-            "language": "node:boron",
-            "command": "npm install"
-          },
-          "exec": {
-            "command": [
-              "node",
-              "VersionAggregatorService.js"
-            ],
-            "environment": { "PORT": "8080" }
-          },
-          "health_check": {
-            "http": {
-              "port": "http",
-              "path": "/status"
-            }
-          }
+  "components": {
+    "aggregator": {
+      "type": "v1/service",
+      "port": {
+        "port": 8080,
+        "protocol": "HTTP",
+        "external_access": {
+          "public": true
         }
-      ],
-      "resources": {
-        "num_instances": 1,
-        "node_pool": "/demo:foo"
-      }
+      },
+      "build": {
+        "git_repository": {
+          "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
+          "tag": "1.0.0"
+        },
+        "language": "node:boron",
+        "command": "npm install"
+      },
+      "exec": {
+        "command": [
+          "node",
+          "VersionAggregatorService.js"
+        ],
+        "environment": {
+          "PORT": "8080"
+        }
+      },
+      "health_check": {
+        "http": {
+          "port": "http",
+          "path": "/status"
+        }
+      },
+
+      "num_instances": 1,
+      "node_pool": "/demo:foo"
     },
-    {
-      "type": "service",
-      "name": "version-service",
 
-      "components": [
-        {
-          "name": "service",
-          "ports": [
-            {
-              "name": "http",
-              "port": 8080,
-              "protocol": "HTTP"
-            }
-          ],
-          "build": {
-            "git_repository": {
-              "url": "https://github.com/mlab-lattice/testing__version-service.git",
-              "tag": "dynamic"
-            },
-            "language": "node:boron",
-            "command": "npm install"
-          },
-          "exec": {
-            "command": [
-              "node",
-              "VersionService.js"
-            ],
-            "environment": {
-              "PORT": "8080",
-              "VERSION": "2.0.0"
-            }
-          },
-          "health_check": {
-            "http": {
-              "port": "http",
-              "path": "/status"
-            }
-          }
+    "version-service": {
+      "type": "v1/service",
+      "ports": {
+        "http": {
+          "port": 8080,
+          "protocol": "HTTP"
         }
-      ],
-      "resources": {
-        "num_instances": 3,
-        "node_pool": "/demo:foo"
-      }
+      },
+
+      "build": {
+        "git_repository": {
+          "url": "https://github.com/mlab-lattice/testing__version-service.git",
+          "tag": "dynamic"
+        },
+        "language": "node:boron",
+        "command": "npm install"
+      },
+
+      "exec": {
+        "command": [
+          "node",
+          "VersionService.js"
+        ],
+        "environment": {
+          "PORT": "8080",
+          "VERSION": "2.0.0"
+        }
+      },
+
+      "health_check": {
+        "http": {
+          "port": "http",
+          "path": "/status"
+        }
+      },
+
+      "num_instances": 3,
+      "node_pool": "/demo:foo"
     }
-  ]
+  }
 }
