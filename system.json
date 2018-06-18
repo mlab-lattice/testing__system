@@ -40,7 +40,7 @@
       },
       "health_check": {
         "http": {
-          "port": "http",
+          "port": 8080,
           "path": "/status"
         }
       },
@@ -76,7 +76,7 @@
 
       "health_check": {
         "http": {
-          "port": "http",
+          "port": 8080,
           "path": "/status"
         }
       },
