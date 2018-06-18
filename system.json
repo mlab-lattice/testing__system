@@ -43,7 +43,7 @@
       },
 
       "num_instances": 1,
-      "node_pool": "/demo:foo"
+      "node_pool": "/:foo"
     },
 
     "version-service": {
@@ -83,7 +83,7 @@
       },
 
       "num_instances": 3,
-      "node_pool": "/demo:foo"
+      "node_pool": "/:foo"
     }
   }
 }
