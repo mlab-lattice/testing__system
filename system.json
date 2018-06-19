@@ -9,6 +9,20 @@
   },
 
   "components": {
+    "ubuntu": {
+      "type": "v1/job",
+
+      "build": {
+        "docker_image": {
+          "registry": "registry.hub.docker.com",
+          "repository": "library/ubuntu",
+          "tag": "latest"
+        }
+      },
+
+      "node_pool": "/:foo"
+    },
+
     "aggregator": {
       "type": "v1/service",
 
