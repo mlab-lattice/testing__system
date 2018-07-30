@@ -13,12 +13,13 @@
       "type": "v1/reference",
 
       "git_repository": {
-        "file": "lattice.json",
-        "tag": "1.x",
-        "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git"
+        "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
+        "tag": "1.0.x",
+        "file": "lattice.json"
       },
 
       "parameters": {
+		"node_pool": "/:foo",
         "num_instances": 1
       },
     },
@@ -27,21 +28,25 @@
       "type": "v1/reference",
 
       "git_repository": {
-        "file": "lattice.yaml",
-        "tag": "1.0.x",
-        "url": "https://github.com/mlab-lattice/testing__version-service.git"
+        "url": "https://github.com/mlab-lattice/testing__version-service.git",
+        "tag": "1.x",
+        "file": "lattice.yaml"
       },
+
+	  "parameters": { "node_pool": "/:foo" }
     },
 
     "ubuntu": {
       "type": "v1/job",
+
       "build": {
-        "node_pool": "/:foo",
-        "registry": "registry.hub.docker.com",
-        "repository": "library/ubuntu",
-        "tag": "latest",
         "type": "docker_image"
-      }
+
+        "repository": "library/ubuntu",
+        "tag": "18.04"
+      },
+
+      "node_pool": "/:foo"
     }
   }
 }
