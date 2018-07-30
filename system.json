@@ -19,7 +19,7 @@
       },
 
       "parameters": {
-		"node_pool": "/:foo",
+	"node_pool": "/:foo",
         "num_instances": 1
       },
     },
@@ -32,15 +32,15 @@
         "tag": "1.x",
         "file": "lattice.yaml"
       },
-
-	  "parameters": { "node_pool": "/:foo" }
+	 
+      "parameters": { "node_pool": "/:foo" }
     },
 
     "ubuntu": {
       "type": "v1/job",
 
       "build": {
-        "type": "docker_image"
+        "type": "docker_image",
 
         "repository": "library/ubuntu",
         "tag": "18.04"
