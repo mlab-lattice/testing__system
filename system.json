@@ -4,99 +4,44 @@
   "node_pools": {
     "foo": {
       "instance_type": "t2.large",
-      "num_instances": 3
+      "num_instances": 2
     }
   },
 
   "components": {
+    "aggregator": {
+      "type": "v1/reference",
+
+      "git_repository": {
+        "file": "lattice.json",
+        "tag": "1.x",
+        "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git"
+      },
+
+      "parameters": {
+        "num_instances": 1
+      },
+    },
+
+    "service": {
+      "type": "v1/reference",
+
+      "git_repository": {
+        "file": "lattice.yaml",
+        "tag": "1.0.x",
+        "url": "https://github.com/mlab-lattice/testing__version-service.git"
+      },
+    },
+
     "ubuntu": {
       "type": "v1/job",
-
       "build": {
-        "docker_image": {
-          "registry": "registry.hub.docker.com",
-          "repository": "library/ubuntu",
-          "tag": "latest"
-        }
-      },
-
-      "node_pool": "/:foo"
-    },
-
-    "aggregator": {
-      "type": "v1/service",
-
-      "ports": {
-        "8080": {
-          "protocol": "HTTP",
-          "external_access": {
-            "public": true
-          }
-        }
-      },
-
-      "build": {
-        "git_repository": {
-          "url": "https://github.com/mlab-lattice/testing__version-aggregator-service.git",
-          "tag": "1.0.0"
-        },
-        "language": "node:boron",
-        "command": ["npm", "install"]
-      },
-      "exec": {
-        "command": [
-          "node",
-          "VersionAggregatorService.js"
-        ],
-        "environment": {
-          "PORT": "8080"
-        }
-      },
-      "health_check": {
-        "http": {
-          "port": 8080,
-          "path": "/status"
-        }
-      },
-
-      "num_instances": 1,
-      "node_pool": "/:foo"
-    },
-
-    "version-service": {
-      "type": "v1/service",
-
-      "ports": { "8080": { "protocol": "HTTP" } },
-
-      "build": {
-        "git_repository": {
-          "url": "https://github.com/mlab-lattice/testing__version-service.git",
-          "tag": "dynamic"
-        },
-        "language": "node:boron",
-        "command": ["npm", "install"]
-      },
-
-      "exec": {
-        "command": [
-          "node",
-          "VersionService.js"
-        ],
-        "environment": {
-          "PORT": "8080",
-          "VERSION": "2.0.0"
-        }
-      },
-
-      "health_check": {
-        "http": {
-          "port": 8080,
-          "path": "/status"
-        }
-      },
-
-      "num_instances": 3,
-      "node_pool": "/:foo"
+        "node_pool": "/:foo",
+        "registry": "registry.hub.docker.com",
+        "repository": "library/ubuntu",
+        "tag": "latest",
+        "type": "docker_image"
+      }
     }
   }
 }

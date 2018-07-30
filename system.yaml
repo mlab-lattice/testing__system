@@ -1,0 +1,37 @@
+type: v1/system
+node_pools:
+  foo:
+    instance_type: t2.large
+    num_instances: 2
+
+components:
+  ubuntu:
+    type: v1/job
+
+    build:
+      type: docker_image
+      registry: registry.hub.docker.com
+      repository: library/ubuntu
+      tag: latest
+
+      node_pool: /:foo
+
+  aggregator:
+    type: v1/reference
+
+    git_repository:
+      url: https://github.com/mlab-lattice/testing__version-aggregator-service.git
+      tag: "1.x"
+      file: lattice.json
+
+    parameters:
+      num_instances: 1
+
+  service:
+    type: v1/reference
+
+    git_repository:
+      url: https://github.com/mlab-lattice/testing__version-service.git
+      tag: "1.0.x"
+      file: lattice.yaml
+
