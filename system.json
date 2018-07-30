@@ -21,7 +21,7 @@
       "parameters": {
 	"node_pool": "/:foo",
         "num_instances": 1
-      },
+      }
     },
 
     "service": {
