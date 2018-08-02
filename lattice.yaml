@@ -12,7 +12,7 @@ components:
     git_repository:
       url: https://github.com/mlab-lattice/testing__version-aggregator-service.git
       tag: 1.0.x
-	  file: lattice.json
+      file: lattice.json
 
     parameters:
       node_pool: /:foo
